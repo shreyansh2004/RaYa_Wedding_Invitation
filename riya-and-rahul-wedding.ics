@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Riya and Rahul//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:riya-rahul-wedding-1798353000000@invitation
+DTSTAMP:20261006T234900Z
+DTSTART:20261227T063000Z
+DTEND:20261227T073000Z
+SUMMARY:Riya Kothari & Rahul Mehta — Wedding Ceremony
+DESCRIPTION:Join us to celebrate the wedding of Riya Kothari and Rahul Mehta.
+LOCATION:Nemuch
+END:VEVENT
+END:VCALENDAR
