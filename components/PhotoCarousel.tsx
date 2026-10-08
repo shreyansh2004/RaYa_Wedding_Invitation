@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState, type TouchEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type TouchEvent,
+  type TransitionEvent,
+} from "react";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -18,33 +25,41 @@ export function PhotoCarousel() {
   const [trackIndex, setTrackIndex] = useState(1);
   const [trackDirection, setTrackDirection] = useState<-1 | 1>(1);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
-  const [paused, setPaused] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const transitionInProgress = useRef(false);
 
   const move = useCallback((direction: -1 | 1) => {
+    if (transitionInProgress.current) return;
+    transitionInProgress.current = true;
     setTrackDirection(direction);
     setTrackIndex((current) => current + direction);
   }, []);
 
   useEffect(() => {
-    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const interval = window.setInterval(() => move(1), 5500);
     return () => window.clearInterval(interval);
-  }, [move, paused]);
+  }, [move]);
 
   useEffect(() => {
     if (transitionEnabled) return;
-    const frame = window.requestAnimationFrame(() => setTransitionEnabled(true));
+    const frame = window.requestAnimationFrame(() => {
+      setTransitionEnabled(true);
+      transitionInProgress.current = false;
+    });
     return () => window.cancelAnimationFrame(frame);
   }, [transitionEnabled]);
 
-  function handleTransitionEnd() {
+  function handleTransitionEnd(event: TransitionEvent<HTMLDivElement>) {
+    if (event.target !== event.currentTarget || event.propertyName !== "transform") return;
     if (trackIndex === photos.length + 1) {
       setTransitionEnabled(false);
       setTrackIndex(1);
     } else if (trackIndex === 0) {
       setTransitionEnabled(false);
       setTrackIndex(photos.length);
+    } else {
+      transitionInProgress.current = false;
     }
   }
 
@@ -54,10 +69,7 @@ export function PhotoCarousel() {
     if (Math.abs(distance) > 40) move(distance < 0 ? 1 : -1);
     setTouchStartX(null);
   }
-
   const trackPhotos = [photos[photos.length - 1], ...photos, photos[0]];
-  const activePhotoIndex = (trackIndex - 1 + photos.length) % photos.length;
-  const slideWidth = 78;
 
   return (
     <div className="photo-carousel" role="region" aria-roledescription="carousel" aria-label="Wedding photo gallery">
@@ -68,7 +80,7 @@ export function PhotoCarousel() {
       >
         <div
           className={`photo-carousel-track is-${trackDirection === 1 ? "next" : "previous"}${transitionEnabled ? "" : " is-resetting"}`}
-          style={{ transform: `translateX(calc(11% - ${trackIndex * slideWidth}%))` }}
+          style={{ transform: `translate3d(calc(11% - ${trackIndex * 78}%), 0, 0)` }}
           onTransitionEnd={handleTransitionEnd}
         >
           {trackPhotos.map((photo, index) => {
@@ -102,7 +114,6 @@ export function PhotoCarousel() {
                       <small>public/photos/{photo.fileName}</small>
                     </div>
                   )}
-                  <figcaption>Riya & Rahul · {String(photoIndex + 1).padStart(2, "0")}</figcaption>
                 </figure>
               </div>
             );
@@ -110,53 +121,6 @@ export function PhotoCarousel() {
         </div>
       </div>
 
-      <div className="photo-carousel-controls">
-        <button
-          className="photo-carousel-arrow"
-          type="button"
-          aria-label="Previous photo"
-          onClick={() => move(-1)}
-        >
-          <span aria-hidden="true">←</span>
-        </button>
-        <div className="photo-carousel-dots" aria-label="Choose a photo">
-          {photos.map((photo, index) => (
-            <button
-              className={`photo-carousel-dot${index === activePhotoIndex ? " is-active" : ""}`}
-              type="button"
-              aria-label={`Show photo ${index + 1}`}
-              aria-current={index === activePhotoIndex ? "true" : undefined}
-              key={photo.fileName}
-              onClick={() => {
-                if (index !== activePhotoIndex) {
-                  setTrackDirection(index > activePhotoIndex ? 1 : -1);
-                  setTrackIndex(index + 1);
-                }
-              }}
-            >
-              <span aria-hidden="true" />
-            </button>
-          ))}
-        </div>
-        <button
-          className="photo-carousel-arrow"
-          type="button"
-          aria-label="Next photo"
-          onClick={() => move(1)}
-        >
-          <span aria-hidden="true">→</span>
-        </button>
-        <button
-          className="photo-carousel-pause"
-          type="button"
-          onClick={() => setPaused((current) => !current)}
-        >
-          {paused ? "Play slideshow" : "Pause slideshow"}
-        </button>
-      </div>
-      <p className="photo-carousel-status" aria-live="polite">
-        Photo {activePhotoIndex + 1} of {photos.length}
-      </p>
     </div>
   );
 }

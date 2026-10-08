@@ -2,6 +2,7 @@ import { Countdown } from "../components/Countdown";
 import { InvitationGate } from "../components/InvitationGate";
 import { InvitationActions } from "../components/InvitationActions";
 import { FallingLeaves } from "../components/FallingLeaves";
+import { PageEffects } from "../components/PageEffects";
 import { PhotoCarousel } from "../components/PhotoCarousel";
 import {
   formatEventDate,
@@ -13,41 +14,16 @@ import Image from "next/image";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-function FloralMark({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={className}
-      viewBox="0 0 100 100"
-      fill="none"
-    >
-      <path
-        d="M50 8c5 15 17 21 31 23-12 9-15 21-9 36-13-6-25-3-36 8 2-16-4-27-18-35 16-2 26-11 32-32Z"
-        stroke="currentColor"
-        strokeWidth="1.3"
-      />
-      <path
-        d="M50 24c4 11 11 17 22 20-10 6-14 14-13 26-9-8-18-10-29-5 5-11 3-21-5-30 12 1 20-2 25-11Z"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-      <circle cx="50" cy="49" r="5" fill="currentColor" />
-      <circle cx="50" cy="49" r="31" stroke="currentColor" strokeWidth=".8" />
-    </svg>
-  );
-}
-
 function SectionHeading({
   eyebrow,
   title,
 }: {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
 }) {
   return (
     <div className="section-heading">
       <span className="eyebrow">{eyebrow}</span>
-      <FloralMark className="heading-mark" />
       <h2>{title}</h2>
       <span className="heading-rule" aria-hidden="true" />
     </div>
@@ -59,46 +35,48 @@ export default function Home() {
 
   return (
     <main>
-      <InvitationGate>
-      <a className="top-brand" href="#top" aria-label="RaYaVerse — Riya and Rahul, back to top">
-          <Image
-            className="brand-logo brand-logo--nav"
-            src={`${basePath}/raya-verse-logo.webp`}
-            alt="RaYaVerse"
-            width={419}
-            height={518}
-            sizes="104px"
-            priority
-          />
-      </a>
-
-      <header className="hero" id="top">
-        <div className="hero-copy">
-          <p className="hero-kicker">Together with our families</p>
-          <p className="hero-overline">joyfully invite you to celebrate</p>
-          <h1 tabIndex={-1}>
-            <span>{invitation.bride.name}</span>
-            <i aria-hidden="true">&</i>
-            <span>{invitation.groom.name}</span>
-          </h1>
-          <p className="hero-date">27 <span>·</span> 12 <span>·</span> 2026</p>
-          <p className="hero-day">SUNDAY <span className="small-diamond" /> NEMUCH</p>
-        </div>
-        <figure className="hero-art">
-          <Image
-            src={`${basePath}/couple-illustration.png`}
-            alt="A festive illustration of a bride and groom beneath wedding garlands"
-            width={957}
-            height={1600}
-            loading="lazy"
-            sizes="(max-width: 680px) 74vw, 390px"
-          />
-        </figure>
-        <a className="scroll-cue" href="#story">
-          <span>Scroll to explore</span>
-          <span aria-hidden="true" className="scroll-line" />
-        </a>
-      </header>
+      <PageEffects>
+        <InvitationGate>
+        <section className="hero-scroll-scene" aria-label="Wedding invitation">
+          <header className="hero" id="top">
+            <p className="hero-mantra">॥ श्री गणेशाय नमः ॥</p>
+            <div className="hero-frame">
+              <div className="hero-copy">
+                <Image
+                  className="hero-brand"
+                  src={`${basePath}/raya-verse-logo.webp`}
+                  alt="RaYaVerse"
+                  width={419}
+                  height={518}
+                  priority
+                />
+                <p className="hero-wedding-label">Wedding</p>
+                <p className="hero-of">of</p>
+                <h1 style={{ fontSize: '50px', fontWeight: 500 }}>
+                  <span>{invitation.bride.name}</span> 
+                  <i aria-hidden="true">&</i>
+                  <span>{invitation.groom.name}</span>
+                </h1>
+                <p className="hero-date">27 <span>·</span> 12 <span>·</span> 2026</p>
+                <p className="hero-day">Sunday <span aria-hidden="true">|</span> Neemuch</p>
+              </div>
+            </div>
+            <figure className="hero-art">
+              <Image
+                src={`${basePath}/wedding-couple.png`}
+                alt="Riya and Rahul in traditional Indian wedding attire"
+                width={768}
+                height={1313}
+                loading="lazy"
+                sizes="(max-width: 680px) 92vw, 680px"
+              />
+            </figure>
+            <a className="scroll-cue" href="#story">
+              <span>Scroll to explore</span>
+              <span aria-hidden="true" className="scroll-line" />
+            </a>
+          </header>
+        </section>
 
       <FallingLeaves />
 
@@ -112,7 +90,6 @@ export default function Home() {
         <p className="invitation-signoff">With love, Riya & Rahul</p>
         <div className="parents-line">
           <span>{invitation.bride.parents.join(" & ")}</span>
-          <FloralMark className="tiny-mark" />
           <span>
             {invitation.groom.parents.every(isPlaceholder)
               ? "The Mehta Family"
@@ -122,8 +99,7 @@ export default function Home() {
       </section>
 
       <section className="countdown-section section-wrap scroll-reveal" aria-labelledby="countdown-title">
-        <span className="eyebrow">The celebration begins in</span>
-        <h2 id="countdown-title" className="script-heading">Counting our blessings</h2>
+        <SectionHeading eyebrow="Counting our blessings" title={<span style={{ fontSize: '2.05rem' }}>The celebration begins in</span>} />
         <Countdown />
         <p className="countdown-note">Until we celebrate together</p>
       </section>
@@ -135,7 +111,6 @@ export default function Home() {
 
       <section className="ceremony-section section-wrap scroll-reveal" id="ceremony">
         <div className="ceremony-frame">
-          <FloralMark className="ceremony-mark" />
           <p className="eyebrow">The wedding ceremony</p>
           <p className="ceremony-day">{invitation.wedding.day}</p>
           <p className="ceremony-date">
@@ -144,7 +119,7 @@ export default function Home() {
             <span>December<br /><small>2026</small></span>
           </p>
           <span className="ceremony-rule" aria-hidden="true" />
-          <p className="ceremony-time">Muhurat at <strong>{invitation.wedding.muhurat}</strong></p>
+          <p className="ceremony-time">Muhurat at <small>{invitation.wedding.muhurat}</small></p>
           <p className="ceremony-place">{invitation.venue.name}</p>
         </div>
       </section>
@@ -170,11 +145,9 @@ export default function Home() {
                   </time>
                 </div>
                 <ol className="event-list">
-                  {events.map((event, index) => (
+                  {events.map((event) => (
                     <li className="event-item" key={`${event.date}-${event.name}`}>
-                      <span className="event-node" aria-hidden="true">
-                        {index === events.length - 1 && weddingDay ? <FloralMark /> : null}
-                      </span>
+                      <span className="event-node" aria-hidden="true" />
                       <time
                         className="event-time"
                         dateTime={`${event.date}T${formatEventTimeForDateTime(event.time)}`}
@@ -192,12 +165,12 @@ export default function Home() {
       </section>
 
       <section className="venue-section section-wrap scroll-reveal" id="venue">
-        <SectionHeading eyebrow="Save your seat" title="Meet us in Neemuch" />
+        <SectionHeading eyebrow="Location" title="Meet us in Neemuch" />
         <div className="venue-card">
           <div className="venue-map-frame">
             <iframe
-              title="Interactive map of Neemuch, Madhya Pradesh"
-              src="https://maps.google.com/maps?q=Neemuch%2C%20Madhya%20Pradesh%2C%20India&output=embed"
+              title="Map showing Hotel Shreshta Paradise, Neemuch"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(`${invitation.venue.name}, ${invitation.venue.address}`)}&output=embed`}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
@@ -221,24 +194,20 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              Get directions <span aria-hidden="true">↗</span>
+              Get directions
             </a>
           </div>
         </div>
-        <InvitationActions />
+        
       </section>
 
       <section className="closing-section section-wrap scroll-reveal" id="rsvp">
-        <FloralMark className="closing-mark" />
         <p className="eyebrow">A celebration is better together</p>
         <h2 className="script-heading">We can’t wait to see you</h2>
         <p className="closing-copy">
           Your love, laughter, and blessings are the most precious gifts.
           Join us as we begin our forever.
         </p>
-        <a className="button button-gold" href="https://wa.me/?text=We%20are%20excited%20to%20celebrate%20Riya%20and%20Rahul%27s%20wedding%20on%2027%20December%202026!">
-          RSVP on WhatsApp <span aria-hidden="true">↗</span>
-        </a>
         <p className="closing-families">With love, the Kothari & Mehta families</p>
       </section>
 
@@ -253,7 +222,8 @@ export default function Home() {
         />
         <p>Made with love for Riya & Rahul · 27.12.2026</p>
       </footer>
-      </InvitationGate>
+        </InvitationGate>
+      </PageEffects>
     </main>
   );
 }

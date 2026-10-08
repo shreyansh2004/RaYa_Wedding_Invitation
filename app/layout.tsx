@@ -27,7 +27,8 @@ export default function RootLayout({
 }>) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const backgroundAssets = {
-    "--wedding-pattern-image": `url("${basePath}/wedding-pattern-background.webp")`,
+    "--page-background-image": `url("${basePath}/background.jpg")`,
+    "--invitation-frame-image": `url("${basePath}/invitation-frame.png")`,
     "--invitation-cover-image": `url("${basePath}/ganesha-invitation-background.webp")`,
   } as CSSProperties;
 
@@ -40,6 +41,9 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Italianno&family=Outfit:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"></link>
       </head>
       <body style={backgroundAssets}>{children}</body>
     </html>

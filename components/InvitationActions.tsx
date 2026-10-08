@@ -7,7 +7,7 @@ export function InvitationActions() {
 
   async function shareInvitation() {
     const shareData = {
-      title: "Riya & Rahul — Wedding Invitation",
+      title: "Riya & Rahul - Wedding Invitation",
       text: "Join us to celebrate Riya Kothari and Rahul Mehta on 27 December 2026.",
       url: window.location.href,
     };
