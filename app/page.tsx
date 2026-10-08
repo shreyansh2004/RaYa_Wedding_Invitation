@@ -1,6 +1,5 @@
 import { Countdown } from "../components/Countdown";
 import { InvitationGate } from "../components/InvitationGate";
-import { InvitationActions } from "../components/InvitationActions";
 import { FallingLeaves } from "../components/FallingLeaves";
 import { PageEffects } from "../components/PageEffects";
 import { PhotoCarousel } from "../components/PhotoCarousel";
