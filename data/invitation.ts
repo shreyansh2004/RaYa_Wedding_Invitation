@@ -34,12 +34,13 @@ export function isPlaceholder(value: string) {
   return value.trim().toLowerCase().startsWith("sample");
 }
 
-export function formatEventDate(date: string) {
-  return new Intl.DateTimeFormat("en-IN", {
+export function formatEventDate(date: string, language: "en" | "hi" = "en") {
+  return new Intl.DateTimeFormat(language === "hi" ? "hi-IN" : "en-IN", {
     weekday: "long",
     day: "numeric",
     month: "long",
     year: "numeric",
+    numberingSystem: "latn",
     timeZone: "Asia/Kolkata",
   }).format(new Date(`${date}T12:00:00+05:30`));
 }

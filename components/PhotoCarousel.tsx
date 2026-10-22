@@ -9,6 +9,7 @@ import {
   type TouchEvent,
   type TransitionEvent,
 } from "react";
+import { translations, type Language } from "../data/translations";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -21,7 +22,8 @@ const photos = [
   { src: "", alt: "Wedding photo 6", fileName: "photo-6.jpg" },
 ] as const;
 
-export function PhotoCarousel() {
+export function PhotoCarousel({ language }: { language: Language }) {
+  const copy = translations[language];
   const [trackIndex, setTrackIndex] = useState(1);
   const [trackDirection, setTrackDirection] = useState<-1 | 1>(1);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
@@ -72,7 +74,7 @@ export function PhotoCarousel() {
   const trackPhotos = [photos[photos.length - 1], ...photos, photos[0]];
 
   return (
-    <div className="photo-carousel" role="region" aria-roledescription="carousel" aria-label="Wedding photo gallery">
+    <div className="photo-carousel" role="region" aria-roledescription="carousel" aria-label={copy.galleryLabel}>
       <div
         className="photo-carousel-viewport"
         onTouchStart={(event) => setTouchStartX(event.touches[0].clientX)}
@@ -91,7 +93,7 @@ export function PhotoCarousel() {
                 key={`${photo.fileName}-${index}`}
                 role="group"
                 aria-roledescription="slide"
-                aria-label={`${photoIndex + 1} of ${photos.length}`}
+                aria-label={copy.photoSlideLabel(photoIndex + 1, photos.length)}
                 aria-hidden={index !== trackIndex}
               >
                 <figure className={`photo-carousel-frame${photo.src ? "" : " is-placeholder"}`}>
@@ -99,7 +101,7 @@ export function PhotoCarousel() {
                     <Image
                       className="photo-carousel-image"
                       src={photo.src}
-                      alt={photo.alt}
+                      alt={copy.photoAlt}
                       fill
                       sizes="(max-width: 760px) 90vw, 720px"
                     />
@@ -110,7 +112,7 @@ export function PhotoCarousel() {
                         <circle cx="17" cy="19" r="3" />
                         <path d="m8 35 12-11 8 7 6-5 7 8" />
                       </svg>
-                      <span>Your photo here</span>
+                      <span>{copy.photoPlaceholder}</span>
                       <small>public/photos/{photo.fileName}</small>
                     </div>
                   )}

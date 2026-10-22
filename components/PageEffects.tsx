@@ -1,8 +1,15 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
+import type { Language } from "../data/translations";
 
-export function PageEffects({ children }: { children: ReactNode }) {
+export function PageEffects({
+  children,
+  language,
+}: {
+  children: ReactNode;
+  language: Language;
+}) {
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>(".scroll-reveal");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -57,7 +64,7 @@ export function PageEffects({ children }: { children: ReactNode }) {
       }
       if (frame !== 0) window.cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [language]);
 
   return children;
 }

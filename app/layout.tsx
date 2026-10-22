@@ -1,6 +1,29 @@
 import type { Metadata, Viewport } from "next";
 import type { CSSProperties } from "react";
+import localFont from "next/font/local";
+import { Eczar } from "next/font/google";
 import "./globals.css";
+import "./invitation-en.css";
+import "./invitation-hi.css";
+
+const eczar = Eczar({
+  subsets: ["devanagari", "latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-eczar",
+  display: "swap",
+});
+
+const indu = localFont({
+  src: "./fonts/AMS-Indu.ttf",
+  variable: "--font-ams-indu",
+  display: "swap",
+});
+
+const aakash = localFont({
+  src: "./fonts/AMS-Aakash.ttf",
+  variable: "--font-ams-aakash",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Riya & Rahul | Wedding Invitation",
@@ -33,7 +56,7 @@ export default function RootLayout({
   } as CSSProperties;
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${eczar.variable} ${indu.variable} ${aakash.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

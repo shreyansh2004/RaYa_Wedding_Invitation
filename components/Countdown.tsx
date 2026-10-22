@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { weddingStart } from "../data/invitation";
+import { translations, type Language } from "../data/translations";
 
 type TimeLeft = {
   days: number;
@@ -20,8 +21,9 @@ function getTimeLeft(): TimeLeft {
   };
 }
 
-export function Countdown() {
+export function Countdown({ language }: { language: Language }) {
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
+  const copy = translations[language];
 
   useEffect(() => {
     const update = () => setTimeLeft(getTimeLeft());
@@ -31,14 +33,14 @@ export function Countdown() {
   }, []);
 
   const units: { label: string; value: number | undefined }[] = [
-    { label: "Days", value: timeLeft?.days },
-    { label: "Hours", value: timeLeft?.hours },
-    { label: "Minutes", value: timeLeft?.minutes },
-    { label: "Seconds", value: timeLeft?.seconds },
+    { label: copy.countdownUnits[0], value: timeLeft?.days },
+    { label: copy.countdownUnits[1], value: timeLeft?.hours },
+    { label: copy.countdownUnits[2], value: timeLeft?.minutes },
+    { label: copy.countdownUnits[3], value: timeLeft?.seconds },
   ];
 
   return (
-    <div className="countdown" aria-label="Countdown to the wedding ceremony">
+    <div className="countdown" aria-label={copy.countdownLabel}>
       {units.map((unit) => (
         <div className="countdown-unit" key={unit.label}>
           <span className="countdown-number" aria-live={unit.label === "Seconds" ? "off" : "polite"}>
