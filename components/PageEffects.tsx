@@ -47,6 +47,8 @@ export function PageEffects({
             : 1;
         const easedProgress = 1 - (1 - progress) ** 3;
         scene.style.setProperty("--portrait-offset", `${(1 - easedProgress) * 108}%`);
+        const fadeProgress = Math.min(1, Math.max(0, (easedProgress - 0.4) / 0.6));
+        scene.style.setProperty("--hero-content-opacity", `${1 - fadeProgress}`);
       };
       scheduleUpdate = () => {
         if (frame === 0) frame = window.requestAnimationFrame(updatePortrait);

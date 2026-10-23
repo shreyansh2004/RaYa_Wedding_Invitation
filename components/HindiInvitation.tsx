@@ -35,26 +35,29 @@ export function HindiInvitation() {
       <section className="hero-scroll-scene" aria-label="विवाह का निमंत्रण">
         <header className="hero" id="top">
           <p className="hero-mantra">॥ श्री गणेशाय नमः ॥</p>
-          <div className="hero-frame">
-            <div className="hero-copy">
-              <Image
-                className="hero-brand"
-                src={`${basePath}/raya-verse-logo.webp`}
-                alt="RaYaVerse"
-                width={419}
-                height={518}
-                priority
-              />
-              <p className="hero-wedding-label">शुभ विवाह</p>
-              <h1 className="hero-title hero-title--hi">
-                <span>iryaa kaeOarI</span>
-                <i aria-hidden="true">संग</i>
-                <span>rahula maehtaa</span>
-              </h1>
-              <p className="hero-date">27 <span>·</span> 12 <span>·</span> 2026</p>
-              <p className="hero-day">रविवार <span aria-hidden="true">|</span> नीमच</p>
-            </div>
-          </div>
+  <div className="hero-frame">
+    <div className="hero-copy">
+      <Image
+        className="hero-brand"
+        src={`${basePath}/raya-verse-logo.webp`}
+        alt="RaYaVerse"
+        width={419}
+        height={518}
+        priority
+      />
+      <p className="hero-wedding-label">शुभ विवाह</p>
+      <h1 className="hero-title hero-title--hi">
+  {/* Add the hero-bride class here */}
+  <span className="hero-bride">iryaa</span>
+  
+  <i aria-hidden="true" className="hero-sang">संग</i>
+  
+  <span className="hero-groom">rahula</span>
+</h1>
+      <p className="hero-date">27 <span>·</span> 12 <span>·</span> 2026</p>
+      <p className="hero-day">रविवार <span aria-hidden="true">|</span> नीमच</p>
+    </div>
+  </div>
           <figure className="hero-art">
             <Image
               src={`${basePath}/wedding-couple1.png`}
@@ -75,20 +78,12 @@ export function HindiInvitation() {
       <FallingLeaves />
 
       <section className="invitation-section section-wrap scroll-reveal" id="story">
-        <SectionHeading eyebrow="एक मंगलमय शुरुआत" title="स्नेह और आशीर्वाद सहित" />
+        <SectionHeading eyebrow="एक मंगलमय शुरुआत" title="आपके स्नेह और आशीर्वाद सहित" />
         <p className="invitation-copy">
-          अपने परिवारों के आशीर्वाद से, हम आपको दो दिलों के एक होने के इस मंगल अवसर पर आमंत्रित
+          हम आपको दो दिलों के एक होने के इस मंगल अवसर पर आमंत्रित
           करते हैं। आपकी उपस्थिति हमारे उत्सव को पूर्ण और हमारी यादों को और भी खूबसूरत बनाएगी।
         </p>
-        <p className="invitation-signoff">स्नेह सहित, रिया और राहुल</p>
-        <div className="parents-line">
-          <span>निलेश जी कोठारी और सुनीता कोठारी</span>
-          <span>
-            {invitation.groom.parents.every(isPlaceholder)
-              ? "मेहता परिवार"
-              : "संतोष जी मेहता और रेखा मेहता"}
-          </span>
-        </div>
+        <p className="invitation-signoff">स्नेह सहित, निलेश - सुनीता कोठारी</p>
       </section>
 
       <section
@@ -108,21 +103,6 @@ export function HindiInvitation() {
         <PhotoCarousel language="hi" />
       </section>
 
-      <section className="ceremony-section section-wrap scroll-reveal" id="ceremony">
-        <div className="ceremony-frame">
-          <p className="eyebrow">विवाह समारोह</p>
-          <p className="ceremony-day">रविवार</p>
-          <p className="ceremony-date">
-            <span>27</span>
-            <span className="date-divider" />
-            <span>दिसंबर<br /><small>2026</small></span>
-          </p>
-          <span className="ceremony-rule" aria-hidden="true" />
-          <p className="ceremony-time">शुभ मुहूर्त <small>12:39 अपराह्न</small></p>
-          <p className="ceremony-place">होटल श्रेष्ठा पैराडाइज़</p>
-        </div>
-      </section>
-
       <section className="events-section section-wrap scroll-reveal" id="celebration">
         <SectionHeading eyebrow="शुभ आयोजन" title="उत्सव का समय" />
         <div className="event-groups">
@@ -139,7 +119,7 @@ export function HindiInvitation() {
               Chaak: "चाक",
               Mamera: "मायरा",
               Haldi: "हल्दी",
-              Reception: "स्वागत समारोह",
+              Reception: "स्वागत समारोह एवं स्वरुचि भोज",
               Jaimala: "जयमाला",
               "Wedding Ceremony": "विवाह समारोह",
             } as const;
@@ -158,7 +138,7 @@ export function HindiInvitation() {
                         className="event-time"
                         dateTime={`${event.date}T${formatEventTimeForDateTime(event.time)}`}
                       >
-                        {event.time.replace("AM", "पूर्वाह्न").replace("PM", "अपराह्न")}
+                        {event.time}
                       </time>
                       <span className="event-name">{hindiEventNames[event.name]}</span>
                     </li>
@@ -171,7 +151,7 @@ export function HindiInvitation() {
       </section>
 
       <section className="venue-section section-wrap scroll-reveal" id="venue">
-        <SectionHeading eyebrow="स्थान" title="नीमच में मिलते हैं" />
+        <SectionHeading eyebrow="विवाह स्थल" title="होटल श्रेष्ठा पैराडाइज़, नीमच, मध्य प्रदेश" />
         <div className="venue-card">
           <div className="venue-map-frame">
             <iframe
@@ -183,13 +163,7 @@ export function HindiInvitation() {
             />
           </div>
           <div className="venue-details">
-            <p className="eyebrow">विवाह स्थल</p>
-            <h3>होटल श्रेष्ठा पैराडाइज़</h3>
-            <address>
-              {isPlaceholder(invitation.venue.address)
-                ? "पता जल्द साझा किया जाएगा"
-                : "नीमच, मध्य प्रदेश"}
-            </address>
+            
             <a
               className="button button-outline"
               href={
@@ -213,7 +187,7 @@ export function HindiInvitation() {
           आपका स्नेह, हँसी और आशीर्वाद हमारे लिए सबसे अनमोल उपहार हैं। हमारे नए जीवन की शुरुआत में
           शामिल हों।
         </p>
-        <p className="closing-families">स्नेह सहित, कोठारी और मेहता परिवार</p>
+        <p className="closing-families">स्नेह सहित, कोठारी परिवार</p>
       </section>
 
       <footer className="site-footer scroll-reveal">

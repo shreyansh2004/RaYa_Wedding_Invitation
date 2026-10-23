@@ -66,6 +66,7 @@ button:focus-visible {
   font-size: 12px;
   letter-spacing: 0.08em;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  opacity: var(--hero-content-opacity, 1);
 }
 
 .hero-frame {
@@ -76,6 +77,7 @@ button:focus-visible {
   height: min(70svh, 920px);
   place-items: center;
   background: var(--invitation-frame-image) center / 100% 100% no-repeat;
+  opacity: var(--hero-content-opacity, 1);
 }
 
 .hero-copy {
@@ -249,6 +251,7 @@ button:focus-visible {
 }
 
 .heading-rule,
+.section-divider,
 .ceremony-rule {
   position: relative;
   display: block;
@@ -259,6 +262,7 @@ button:focus-visible {
 }
 
 .heading-rule::after,
+.section-divider::after,
 .ceremony-rule::after {
   position: absolute;
   top: -3px;
@@ -366,7 +370,11 @@ button:focus-visible {
 }
 
 .couple-section {
-  padding: 127px 0 125px;
+  padding: 127px 0 90px;
+}
+
+.section-divider {
+  margin: 52px auto 0;
 }
 
 .photo-carousel {
@@ -589,7 +597,7 @@ button:focus-visible {
 }
 
 .events-section {
-  padding: 128px 0 120px;
+  padding: 90px 0 120px;
 }
 
 .event-groups {
@@ -937,9 +945,12 @@ button:focus-visible {
     letter-spacing: 0.1em;
   }
 
-  .couple-section,
-.events-section {
-    padding: 93px 0 87px;
+  .couple-section {
+    padding: 93px 0 65px;
+  }
+
+  .events-section {
+    padding: 70px 0 87px;
   }
 
   .photo-carousel {

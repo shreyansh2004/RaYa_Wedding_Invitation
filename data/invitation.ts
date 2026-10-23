@@ -1,11 +1,10 @@
 export const invitation = {
   bride: {
-    name: "Riya Kothari",
-    parents: ["Nilesh ji Kothari", "Sunita Kothari"],
+    name: "Riya",
+    parents: ["Nilesh", "Sunita Kothari"],
   },
   groom: {
-    name: "Rahul Mehta",
-    parents: ["Santosh ji Mehta", "Rekha Mehta"],
+    name: "Rahul",
   },
   wedding: {
     date: "2026-12-27",

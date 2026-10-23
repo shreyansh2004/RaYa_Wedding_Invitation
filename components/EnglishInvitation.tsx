@@ -81,15 +81,8 @@ export function EnglishInvitation() {
           With the blessings of our families, we invite you to join us as two hearts become one.
           Your presence will make our celebration complete and our memories all the more beautiful.
         </p>
-        <p className="invitation-signoff">With love, Riya & Rahul</p>
-        <div className="parents-line">
-          <span>{invitation.bride.parents.join(" & ")}</span>
-          <span>
-            {invitation.groom.parents.every(isPlaceholder)
-              ? "The Mehta Family"
-              : invitation.groom.parents.join(" & ")}
-          </span>
-        </div>
+        <p className="invitation-signoff">With love, {invitation.bride.parents.join(" - ")}</p>
+        
       </section>
 
       <section
@@ -107,21 +100,6 @@ export function EnglishInvitation() {
       <section className="couple-section section-wrap scroll-reveal" id="couple">
         <SectionHeading eyebrow="Two families, one beautiful beginning" title="The couple" />
         <PhotoCarousel language="en" />
-      </section>
-
-      <section className="ceremony-section section-wrap scroll-reveal" id="ceremony">
-        <div className="ceremony-frame">
-          <p className="eyebrow">The wedding ceremony</p>
-          <p className="ceremony-day">{invitation.wedding.day}</p>
-          <p className="ceremony-date">
-            <span>27</span>
-            <span className="date-divider" />
-            <span>December<br /><small>2026</small></span>
-          </p>
-          <span className="ceremony-rule" aria-hidden="true" />
-          <p className="ceremony-time">Muhurat at <small>{invitation.wedding.muhurat}</small></p>
-          <p className="ceremony-place">{invitation.venue.name}</p>
-        </div>
       </section>
 
       <section className="events-section section-wrap scroll-reveal" id="celebration">
@@ -206,7 +184,7 @@ export function EnglishInvitation() {
           Your love, laughter, and blessings are the most precious gifts. Join us as we begin our
           forever.
         </p>
-        <p className="closing-families">With love, the Kothari & Mehta families</p>
+        <p className="closing-families">With love, the Kothari family</p>
       </section>
 
       <footer className="site-footer scroll-reveal">
