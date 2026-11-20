@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Countdown } from "./Countdown";
 import { FallingLeaves } from "./FallingLeaves";
+import { FamilyAcknowledgements } from "./FamilyAcknowledgements";
 import { PhotoCarousel } from "./PhotoCarousel";
 import {
   formatEventDate,
@@ -48,7 +49,7 @@ export function HindiInvitation() {
       <p className="hero-wedding-label">शुभ विवाह</p>
       <h1 className="hero-title hero-title--hi">
   {/* Add the hero-bride class here */}
-  <span className="hero-bride">iryaa</span>
+  <span className="hero-bride"> iryaa</span>
   
   <i aria-hidden="true" className="hero-sang">संग</i>
   
@@ -189,6 +190,8 @@ export function HindiInvitation() {
         </p>
         <p className="closing-families">स्नेह सहित, कोठारी परिवार</p>
       </section>
+
+      <FamilyAcknowledgements language="hi" />
 
       <footer className="site-footer scroll-reveal">
         <Image

@@ -726,3 +726,136 @@ main {
     transition-duration: 1ms;
   }
 }
+
+.family-acknowledgements {
+  padding-top: 58px;
+  padding-bottom: 64px;
+  border-top: 1px solid rgba(210, 174, 98, 0.18);
+}
+
+.family-acknowledgements__header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.family-acknowledgements__header h2 {
+  margin: 4px 0 0;
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: clamp(30px, 5vw, 42px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.family-acknowledgements__memorial {
+  width: min(100%, 560px);
+  margin: 0 auto 24px;
+  padding: 18px 20px;
+  border-block: 1px solid var(--line);
+  text-align: center;
+}
+
+.family-acknowledgements__memorial h3,
+.family-acknowledgements__group h3,
+.family-acknowledgements__notes h3 {
+  margin: 0 0 10px;
+  color: var(--gold-light);
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.family-acknowledgements__memorial p,
+.family-acknowledgements__group li,
+.family-acknowledgements__notes p {
+  margin: 0;
+  color: rgba(255, 246, 230, 0.86);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.family-acknowledgements__groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.family-acknowledgements__group {
+  min-width: 0;
+  padding: 19px 18px;
+  border: 1px solid rgba(210, 174, 98, 0.2);
+  border-radius: var(--card-radius);
+  background: rgba(16, 25, 54, 0.62);
+  text-align: center;
+}
+
+.family-acknowledgements__group ul {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.family-acknowledgements__group li {
+  overflow-wrap: anywhere;
+}
+
+.family-acknowledgements__notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(210, 174, 98, 0.2);
+  text-align: center;
+}
+
+.family-acknowledgements__notes section {
+  min-width: 0;
+  padding: 0 12px;
+}
+
+.family-acknowledgements[lang="hi"] {
+  font-family: var(--hindi);
+}
+
+.family-acknowledgements[lang="hi"] .eyebrow,
+.family-acknowledgements[lang="hi"] .family-acknowledgements__header h2,
+.family-acknowledgements[lang="hi"] .family-acknowledgements__memorial,
+.family-acknowledgements[lang="hi"] .family-acknowledgements__group,
+.family-acknowledgements[lang="hi"] .family-acknowledgements__notes {
+  font-family: var(--hindi);
+}
+
+@media (max-width: 760px) {
+  .family-acknowledgements__groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .family-acknowledgements {
+    padding-top: 46px;
+    padding-bottom: 48px;
+  }
+
+  .family-acknowledgements__groups,
+  .family-acknowledgements__notes {
+    grid-template-columns: 1fr;
+  }
+
+  .family-acknowledgements__group {
+    padding: 17px 14px;
+  }
+
+  .family-acknowledgements__notes {
+    gap: 20px;
+  }
+
+  .family-acknowledgements__notes section {
+    padding: 0;
+  }
+}

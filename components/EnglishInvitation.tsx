@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Countdown } from "./Countdown";
 import { FallingLeaves } from "./FallingLeaves";
+import { FamilyAcknowledgements } from "./FamilyAcknowledgements";
 import { PhotoCarousel } from "./PhotoCarousel";
 import {
   formatEventDate,
@@ -186,6 +187,8 @@ export function EnglishInvitation() {
         </p>
         <p className="closing-families">With love, the Kothari family</p>
       </section>
+
+      <FamilyAcknowledgements language="en" />
 
       <footer className="site-footer scroll-reveal">
         <Image
