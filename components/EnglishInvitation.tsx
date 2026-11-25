@@ -182,8 +182,7 @@ export function EnglishInvitation() {
         <p className="eyebrow">A celebration is better together</p>
         <h2 className="script-heading">We can’t wait to see you</h2>
         <p className="closing-copy">
-          Your love, laughter, and blessings are the most precious gifts. Join us as we begin our
-          forever.
+          Your love, laughter, and blessings are the most precious gifts. Please do join in our family's celebrations and bless the newlywed couple.
         </p>
         <p className="closing-families">With love, the Kothari Family</p>
       </section>
