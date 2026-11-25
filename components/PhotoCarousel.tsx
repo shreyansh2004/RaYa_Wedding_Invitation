@@ -14,12 +14,12 @@ import { translations, type Language } from "../data/translations";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const photos = [
-  { src: `${basePath}/photos/photo-1.webp`, fileName: "photo-1.webp" },
-  { src: `${basePath}/photos/photo-2.webp`, fileName: "photo-2.webp" },
-  { src: `${basePath}/photos/photo-3.webp`, fileName: "photo-3.webp" },
-  { src: `${basePath}/photos/photo-4.webp`, fileName: "photo-4.webp" },
-  { src: `${basePath}/photos/photo-5.webp`, fileName: "photo-5.webp" },
-  { src: `${basePath}/photos/photo-6.webp`, fileName: "photo-6.webp" },
+  { src: `${basePath}/photos/photo-1.webp`, fileName: "photo-1.webp", zoom: 1, positionX: 50, positionY: 50 },
+  { src: `${basePath}/photos/photo-2.webp`, fileName: "photo-2.webp", zoom: 1, positionX: 50, positionY: 50 },
+  { src: `${basePath}/photos/photo-3.webp`, fileName: "photo-3.webp", zoom: 1, positionX: 50, positionY: 70 },
+  { src: `${basePath}/photos/photo-4.webp`, fileName: "photo-4.webp", zoom: 1, positionX: 50, positionY: 50 },
+  { src: `${basePath}/photos/photo-5.webp`, fileName: "photo-5.webp", zoom: 1, positionX: 50, positionY: 50 },
+  { src: `${basePath}/photos/photo-6.webp`, fileName: "photo-6.webp", zoom: 1, positionX: 50, positionY: 50 },
 ] as const;
 
 export function PhotoCarousel({ language }: { language: Language }) {
@@ -103,6 +103,10 @@ export function PhotoCarousel({ language }: { language: Language }) {
                     alt={copy.photoAlt}
                     fill
                     sizes="(max-width: 760px) 90vw, 720px"
+                    style={{
+                      objectPosition: `${photo.positionX}% ${photo.positionY}%`,
+                      transform: `translate(${(50 - photo.positionX) * (photo.zoom - 1)}%, ${(50 - photo.positionY) * (photo.zoom - 1)}%) scale(${photo.zoom})`,
+                    }}
                   />
                 </figure>
               </div>
