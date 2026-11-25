@@ -187,7 +187,11 @@ export function HindiInvitation() {
         <p className="closing-copy">
           आपका स्नेह, हँसी और आशीर्वाद हमारे लिए सबसे अनमोल उपहार हैं। हमारे परिवार की खुशियों में आप अवश्य शामिल होकर नवयुगल को आशीर्वाद प्रदान करे।
         </p>
-        <p className="closing-families">स्नेह सहित, कोठारी परिवार</p>
+        <p className="closing-families">
+          स्नेह सहित,
+          <br />
+          श्रीमती जतनबेन कोठारी एवं कोठारी परिवार
+        </p>
       </section>
 
       <FamilyAcknowledgements language="hi" />

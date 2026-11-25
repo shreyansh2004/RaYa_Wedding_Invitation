@@ -185,7 +185,11 @@ export function EnglishInvitation() {
           Your love, laughter, and blessings are the most precious gifts. Join us as we begin our
           forever.
         </p>
-        <p className="closing-families">With love, the Kothari Family</p>
+        <p className="closing-families">
+          With love,
+          <br />
+          Smt. Jatanben Kothari and the Kothari Family
+        </p>
       </section>
 
       <FamilyAcknowledgements language="en" />

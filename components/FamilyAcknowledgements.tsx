@@ -7,7 +7,6 @@ type AcknowledgementGroup = {
 
 type AcknowledgementCopy = {
   eyebrow: string;
-  title: string;
   memorialHeading: string;
   memorialName: string;
   groups: AcknowledgementGroup[];
@@ -20,7 +19,6 @@ type AcknowledgementCopy = {
 const copy: Record<Language, AcknowledgementCopy> = {
   en: {
     eyebrow: "Our family and well-wishers",
-    title: "With warm regards",
     memorialHeading: "Vinayashri",
     memorialName: "Late Shri Bhanwarlalji Kothari",
     groups: [
@@ -72,7 +70,6 @@ const copy: Record<Language, AcknowledgementCopy> = {
   },
   hi: {
     eyebrow: "परिवार एवं शुभचिंतक",
-    title: "स्नेह सहित",
     memorialHeading: "दिव्याशीष :",
     memorialName: "स्व. श्री भंवरलालजी कोठारी",
     groups: [
@@ -131,13 +128,8 @@ export function FamilyAcknowledgements({ language }: { language: Language }) {
     <section
       className="family-acknowledgements section-wrap scroll-reveal"
       lang={language}
-      aria-labelledby="family-acknowledgements-title"
+      aria-label={content.eyebrow}
     >
-      <header className="family-acknowledgements__header">
-        <p className="eyebrow">{content.eyebrow}</p>
-        <h2 id="family-acknowledgements-title">{content.title}</h2>
-      </header>
-
       <div className="family-acknowledgements__memorial">
         <h3>{content.memorialHeading}</h3>
         <p>{content.memorialName}</p>

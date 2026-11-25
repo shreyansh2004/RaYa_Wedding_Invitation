@@ -734,21 +734,6 @@ main {
 .family-acknowledgements {
   padding-top: 58px;
   padding-bottom: 64px;
-  border-top: 1px solid rgba(210, 174, 98, 0.18);
-}
-
-.family-acknowledgements__header {
-  margin-bottom: 28px;
-  text-align: center;
-}
-
-.family-acknowledgements__header h2 {
-  margin: 4px 0 0;
-  color: var(--cream);
-  font-family: var(--serif);
-  font-size: clamp(30px, 5vw, 42px);
-  font-weight: 400;
-  line-height: 1.15;
 }
 
 .family-acknowledgements__memorial {
@@ -826,8 +811,6 @@ main {
   font-family: var(--hindi);
 }
 
-.family-acknowledgements[lang="hi"] .eyebrow,
-.family-acknowledgements[lang="hi"] .family-acknowledgements__header h2,
 .family-acknowledgements[lang="hi"] .family-acknowledgements__memorial,
 .family-acknowledgements[lang="hi"] .family-acknowledgements__group,
 .family-acknowledgements[lang="hi"] .family-acknowledgements__notes {
@@ -1018,7 +1001,7 @@ main {
   }
 
   .invitation-page .closing-section {
-    padding: 85px 16px 80px;
+    padding: 85px 16px 36px;
   }
 
   .invitation-page .family-acknowledgements {
