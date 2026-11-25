@@ -14,12 +14,12 @@ import { translations, type Language } from "../data/translations";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const photos = [
-  { src: `${basePath}/photos/photo-1.JPG`, alt: "Riya and Rahul together", fileName: "photo-1.JPG" },
-  { src: "", alt: "Wedding photo 2", fileName: "photo-2.jpg" },
-  { src: "", alt: "Wedding photo 3", fileName: "photo-3.jpg" },
-  { src: "", alt: "Wedding photo 4", fileName: "photo-4.jpg" },
-  { src: "", alt: "Wedding photo 5", fileName: "photo-5.jpg" },
-  { src: "", alt: "Wedding photo 6", fileName: "photo-6.jpg" },
+  { src: `${basePath}/photos/photo-1.webp`, fileName: "photo-1.webp" },
+  { src: `${basePath}/photos/photo-2.webp`, fileName: "photo-2.webp" },
+  { src: `${basePath}/photos/photo-3.webp`, fileName: "photo-3.webp" },
+  { src: `${basePath}/photos/photo-4.webp`, fileName: "photo-4.webp" },
+  { src: `${basePath}/photos/photo-5.webp`, fileName: "photo-5.webp" },
+  { src: `${basePath}/photos/photo-6.webp`, fileName: "photo-6.webp" },
 ] as const;
 
 export function PhotoCarousel({ language }: { language: Language }) {
@@ -96,26 +96,14 @@ export function PhotoCarousel({ language }: { language: Language }) {
                 aria-label={copy.photoSlideLabel(photoIndex + 1, photos.length)}
                 aria-hidden={index !== trackIndex}
               >
-                <figure className={`photo-carousel-frame${photo.src ? "" : " is-placeholder"}`}>
-                  {photo.src ? (
-                    <Image
-                      className="photo-carousel-image"
-                      src={photo.src}
-                      alt={copy.photoAlt}
-                      fill
-                      sizes="(max-width: 760px) 90vw, 720px"
-                    />
-                  ) : (
-                    <div className="photo-placeholder">
-                      <svg viewBox="0 0 48 48" aria-hidden="true">
-                        <rect x="5" y="8" width="38" height="32" rx="3" />
-                        <circle cx="17" cy="19" r="3" />
-                        <path d="m8 35 12-11 8 7 6-5 7 8" />
-                      </svg>
-                      <span>{copy.photoPlaceholder}</span>
-                      <small>public/photos/{photo.fileName}</small>
-                    </div>
-                  )}
+                <figure className="photo-carousel-frame">
+                  <Image
+                    className="photo-carousel-image"
+                    src={photo.src}
+                    alt={copy.photoAlt}
+                    fill
+                    sizes="(max-width: 760px) 90vw, 720px"
+                  />
                 </figure>
               </div>
             );

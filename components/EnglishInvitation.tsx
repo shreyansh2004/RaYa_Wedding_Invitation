@@ -185,7 +185,7 @@ export function EnglishInvitation() {
           Your love, laughter, and blessings are the most precious gifts. Join us as we begin our
           forever.
         </p>
-        <p className="closing-families">With love, the Kothari family</p>
+        <p className="closing-families">With love, the Kothari Family</p>
       </section>
 
       <FamilyAcknowledgements language="en" />
@@ -199,7 +199,10 @@ export function EnglishInvitation() {
           height={518}
           sizes="48px"
         />
-        <p>Made with love for Riya & Rahul · 27.12.2026</p>
+        <div className="site-footer-copy">
+          <p>Made with love for Riya & Rahul · 27.12.2026</p>
+          <p className="site-footer-author">By Shreyansh Kothari</p>
+        </div>
       </footer>
     </>
   );

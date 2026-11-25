@@ -296,7 +296,7 @@ button:focus-visible {
   margin: 30px auto 0;
   color: var(--muted);
   font-family: var(--serif);
-  font-size: 21px;
+  font-size: var(--hindi-invitation-copy-size);
   line-height: 1.7;
 }
 
@@ -851,7 +851,7 @@ button:focus-visible {
   margin: 0 auto 27px;
   color: var(--muted);
   font-family: var(--serif);
-  font-size: 20px;
+  font-size: var(--hindi-closing-copy-size);
 }
 
 .closing-families {
@@ -879,6 +879,17 @@ button:focus-visible {
 
 .site-footer p {
   margin: 0;
+}
+
+.site-footer-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-footer-author {
+  font-size: 0.9em;
 }
 
 @media (min-width: 900px) {
@@ -931,7 +942,7 @@ button:focus-visible {
   }
 
   .invitation-copy {
-    font-size: 19px;
+    font-size: var(--hindi-invitation-copy-size);
   }
 
   .parents-line {
@@ -1058,6 +1069,11 @@ button:focus-visible {
   --sans: var(--hindi);
   --serif: var(--hindi);
   --script: var(--hindi);
+  --hindi-invitation-heading-size: 1.7rem;
+  --hindi-invitation-signoff-size: 1.55rem;
+  --hindi-closing-heading-size: 1.75rem;
+  --hindi-invitation-copy-size: 16px;
+  --hindi-closing-copy-size: 16px;
 }
 
 :scope * {
@@ -1084,6 +1100,18 @@ button:focus-visible {
 :scope .script-heading,
 :scope .invitation-signoff {
   line-height: 1.35;
+}
+
+:scope .invitation-section .section-heading h2 {
+  font-size: var(--hindi-invitation-heading-size);
+}
+
+:scope .invitation-signoff {
+  font-size: var(--hindi-invitation-signoff-size);
+}
+
+:scope .closing-section .script-heading {
+  font-size: var(--hindi-closing-heading-size);
 }
 }
 

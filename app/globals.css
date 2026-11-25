@@ -74,6 +74,10 @@ main {
   overflow: clip;
 }
 
+.invitation-content {
+  container: invitation-frame / inline-size;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
 *::before,
@@ -856,6 +860,186 @@ main {
   }
 
   .family-acknowledgements__notes section {
+    padding: 0;
+  }
+}
+
+@media (min-width: 681px) {
+  body {
+    background: var(--night);
+  }
+
+  body::before {
+    z-index: 1;
+  }
+
+  body::after {
+    position: fixed;
+    z-index: 0;
+    inset: -18px;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(10, 16, 36, 0.45), rgba(10, 16, 36, 0.58)),
+      var(--page-background-image);
+    background-position: center, center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    content: "";
+    filter: blur(14px) brightness(0.7);
+  }
+
+  main {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 54.12svh);
+    min-height: 100vh;
+    margin-inline: auto;
+    background-image:
+      linear-gradient(rgba(10, 16, 36, 0.38), rgba(10, 16, 36, 0.48)),
+      var(--page-background-image);
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    box-shadow: 0 0 48px rgba(0, 0, 0, 0.58), 0 0 0 1px rgba(240, 220, 166, 0.12);
+  }
+
+  main .language-toggle {
+    position: absolute;
+  }
+}
+
+@container invitation-frame (max-width: 680px) {
+  .invitation-page .hero-scroll-scene {
+    height: 190svh;
+  }
+
+  .invitation-page .hero {
+    min-height: 0;
+    padding: 3svh 8px;
+  }
+
+  .invitation-page .hero-frame {
+    width: min(calc(100cqw - 32px), 520px);
+  }
+
+  .invitation-page .hero-art {
+    bottom: -3svh;
+    width: 100cqw;
+    height: 96svh;
+  }
+
+  .invitation-page .section-wrap {
+    width: min(100% - 32px, 560px);
+  }
+
+  .invitation-page .invitation-section {
+    padding: 94px 8px 86px;
+  }
+
+  .invitation-page .invitation-copy {
+    font-size: var(--hindi-invitation-copy-size, 19px);
+  }
+
+  .invitation-page .parents-line {
+    gap: 8px 13px;
+    font-size: 15px;
+  }
+
+  .invitation-page .countdown-section {
+    padding: 71px 16px 75px;
+  }
+
+  .invitation-page .countdown {
+    gap: 8px;
+  }
+
+  .invitation-page .countdown-unit {
+    width: min(calc((100cqw - 62px) / 4), 94px);
+    min-height: 88px;
+  }
+
+  .invitation-page .countdown-number {
+    font-size: 31px;
+  }
+
+  .invitation-page .countdown-label {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .invitation-page .couple-section {
+    padding: 93px 0 65px;
+  }
+
+  .invitation-page .events-section {
+    padding: 70px 0 87px;
+  }
+
+  .invitation-page .photo-carousel {
+    margin-top: 39px;
+  }
+
+  .invitation-page .ceremony-section {
+    padding: 80px 23px;
+  }
+
+  .invitation-page .ceremony-frame {
+    min-height: 420px;
+  }
+
+  .invitation-page .event-groups {
+    grid-template-columns: 1fr;
+    gap: 17px;
+    margin-top: 38px;
+  }
+
+  .invitation-page .event-day {
+    padding: 23px 20px;
+  }
+
+  .invitation-page .venue-section {
+    padding: 82px 0 87px;
+  }
+
+  .invitation-page .venue-card {
+    grid-template-columns: 1fr;
+    margin-top: 34px;
+  }
+
+  .invitation-page .venue-map-frame {
+    min-height: 250px;
+    height: 280px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(210, 174, 98, 0.35);
+  }
+
+  .invitation-page .venue-details {
+    padding: 26px 24px 29px;
+  }
+
+  .invitation-page .closing-section {
+    padding: 85px 16px 80px;
+  }
+
+  .invitation-page .family-acknowledgements {
+    padding-top: 46px;
+    padding-bottom: 48px;
+  }
+
+  .invitation-page .family-acknowledgements__groups,
+  .invitation-page .family-acknowledgements__notes {
+    grid-template-columns: 1fr;
+  }
+
+  .invitation-page .family-acknowledgements__group {
+    padding: 17px 14px;
+  }
+
+  .invitation-page .family-acknowledgements__notes {
+    gap: 20px;
+  }
+
+  .invitation-page .family-acknowledgements__notes section {
     padding: 0;
   }
 }

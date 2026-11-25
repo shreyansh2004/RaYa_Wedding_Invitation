@@ -33,6 +33,7 @@ const copy: Record<Language, AcknowledgementCopy> = {
           "Vijay - Smt. Sunita Kothari",
           "Rajesh - Smt. Alka Kothari",
           "Yatindra - Smt. Hema Kothari",
+          "Pt. Vijay - Sarita Sharma"
         ],
       },
       {
@@ -48,7 +49,7 @@ const copy: Record<Language, AcknowledgementCopy> = {
       {
         heading: "The welcoming family",
         names: [
-          "Ayush - Dr. Isha",
+          "Ayush - Dr. Isha Kothari",
           "Dr. Aarchi",
           "Shreyansh and Sambhav Kothari",
         ],
@@ -59,13 +60,13 @@ const copy: Record<Language, AcknowledgementCopy> = {
       },
       {
         heading: "The joy of our home",
-        names: ["Risha, Saksham, Mokshi, Krishiv and Kridha"],
+        names: ["Risha, Samaksh, Mokshi, Krishiv and Kridha"],
       },
     ],
-    invitationHeading: "Invitation from",
+    invitationHeading: "Maternal Side",
     invitationText:
-      "Shri Sunilji, Rajeshji, Deepakji, Ashishji, Amitji, Devji, Dakshji, Ku. Hiral, Ku. Akshara, and the Bohra family of Ratlam (M.P.).",
-    familyHeading: "With regards",
+      "Shri Sunilji, Rajeshji, Deepakji, Ashishji, Amitji, Dakshji, Devji, Ku. Hiral, Ku. Akshara, and the Bohra family of Ratlam (M.P.).",
+    familyHeading: "Baraat",
     familyText:
       "Shri Rajmalji, Pradipji, and the Santoshji Mehta family of Neemuch warmly invite you to join us at Shreshta Paradise Marriage Garden, Neemuch.",
   },
@@ -84,12 +85,13 @@ const copy: Record<Language, AcknowledgementCopy> = {
           "विजय - सौ. सुनीता कोठारी",
           "राजेश - सौ. अलका कोठारी",
           "यतीन्द्र - सौ. हेमा कोठारी",
+          "पं. विजय - सरिता शर्मा"
         ],
       },
       {
         heading: "स्वागतातुर :",
         names: [
-          "आयुष - डॉ. ईशा",
+          "आयुष - डॉ. ईशा कोठारी",
           "डॉ. आर्ची",
           "श्रेयांश एवं संभव कोठारी",
         ],
@@ -110,12 +112,12 @@ const copy: Record<Language, AcknowledgementCopy> = {
       },
       {
         heading: "घर की रौनक :",
-        names: ["रिशा, सक्षम, मौक्षी, क्रिशिव एवं कृधा"],
+        names: ["रिशा, समक्ष, मौक्षी, क्रिशिव एवं कृधा"],
       },
     ],
     invitationHeading: "ननिहाल पक्ष :",
     invitationText:
-      "श्रीमान सुनील जी, राजेश जी, दीपक जी, आशीष जी, अमित जी, देव जी, दक्ष जी, कु. हिरल, कु. अक्षरा एवं बोहरा परिवार, रतलाम (म.प्र.)।",
+      "श्रीमान सुनील जी, राजेश जी, दीपक जी, आशीष जी, अमित जी, दक्ष जी, देव जी, कु. हिरल, कु. अक्षरा एवं बोहरा परिवार, रतलाम (म.प्र.)।",
     familyHeading: "बारात :",
     familyText:
       "श्रीमान राजमलजी, प्रदीपजी, सन्तोषजी मेहता परिवार, नीमच वालों के यहाँ से श्रेष्ठा पैराडाइज मेरिज गार्डन, नीमच आवेंगे।",

@@ -202,7 +202,10 @@ export function HindiInvitation() {
           height={518}
           sizes="48px"
         />
-        <p>रिया और राहुल के लिए स्नेह से बनाया · 27.12.2026</p>
+        <div className="site-footer-copy">
+          <p>रिया और राहुल के लिए स्नेह से बनाया · 27.12.2026</p>
+          <p className="site-footer-author">श्रेयांश कोठारी द्वारा</p>
+        </div>
       </footer>
     </>
   );
